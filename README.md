@@ -7,6 +7,12 @@ This repository contains the source code of my personal portfolio created using 
   
 - **Three.js:** Integration of Three.js for designing 3D visuals, allowing an innovative presentation of my projects and skills through interactive renderings.
 
+- **React Three Fiber:** Integration of React Three Fiber for creating 3D visuals, allowing an innovative presentation of my projects and skills through interactive renderings.
+
+- **Tailwind CSS:** Leveraging Tailwind CSS for efficient styling, ensuring a clean and modern interface design.
+
+- **Framer Motion:** Implementing Framer Motion for animations, enhancing the overall user experience and providing dynamic interactions.
+
 - **Projects Section:** Highlighting my achievements through interactive 3D visuals, offering visitors a detailed view of each project.
 
 - **Immersive Experience:** Crafting an immersive user experience with animations, visual effects, and smooth navigation, providing a dynamic insight into my work.
