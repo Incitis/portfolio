@@ -1,9 +1,43 @@
-import React from 'react'
+import React, { Suspense } from 'react';
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls, Preload, useGLTF } from '@react-three/drei';
+
+// Remplacer par votre composant CanvasLoader réel.
+const CanvasLoader = () => <span>Loading...</span>;
 
 const Computers = () => {
-  return (
-    <div>Computers</div>
-  )
-}
+  const gltf = useGLTF('/desktop_pc/scene.gltf');
 
-export default Computers
+  return (
+    <>
+      <hemisphereLight intensity={0.15} groundColor="black" />
+      <pointLight intensity={1} position={[10, 10, 10]} />
+      <mesh position={[0, 0, 0]} scale={[1, 1, 1]}>
+        <primitive object={gltf.scene} />
+      </mesh>
+    </>
+  );
+};
+
+const ComputersCanvas = () => {
+  return (
+    <Canvas 
+      frameloop='demand'
+      shadows
+      camera={{ position: [20, 3, 5], fov: 25 }}
+      gl={{ preserveDrawingBuffer: true }}
+    >
+      <Suspense fallback={<CanvasLoader />}>
+        <OrbitControls 
+          enableZoom={false} 
+          maxPolarAngle={Math.PI / 2}
+          minPolarAngle={Math.PI / 2}
+        />
+        <Computers />
+      </Suspense>
+      <Preload all />
+    </Canvas>
+  );
+};
+
+export default ComputersCanvas;
