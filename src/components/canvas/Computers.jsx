@@ -2,9 +2,6 @@ import React, { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Preload, useGLTF } from '@react-three/drei';
 
-// Remplacer par votre composant CanvasLoader réel.
-const CanvasLoader = () => <span>Loading...</span>;
-
 const Computers = () => {
   const gltf = useGLTF('/desktop_pc/scene.gltf');
 
@@ -27,7 +24,7 @@ const ComputersCanvas = () => {
       camera={{ position: [20, 3, 5], fov: 25 }}
       gl={{ preserveDrawingBuffer: true }}
     >
-      <Suspense fallback={<CanvasLoader />}>
+      <Suspense fallback={null}>
         <OrbitControls 
           enableZoom={false} 
           maxPolarAngle={Math.PI / 2}
